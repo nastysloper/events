@@ -7,3 +7,12 @@ helpers do
     "<em>#{text}</em>"
   end
 end
+
+1. add models and migrations.
+1.1 set up associations
+
+
+
+2. bundle
+3. run rake create and migrate
+4. shotgun

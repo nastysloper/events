@@ -1,0 +1,27 @@
+<div class="container">
+  <h1>Sign Up</h1>
+
+  
+
+  <form id="sign-up" method="post" action="/users">
+    <label class="label">First name</label>
+    <input type="text" name="user[first_name]" placeholder="e.g., joe">
+    <br>
+    <label class="label">Last name</label>
+    <input type="text" name="user[last_name]" placeholder="e.g., smith">
+    <label class="label">Birthdate</label>
+    <input type="text" name="user[birthdate]" placeholder="e.g., 08/15/1960">
+    <br>
+    <span id="name-errors" class="errors"></span>
+    <br>
+    <label class="label">Email</label>
+    <input type="email" name="user[email]" placeholder="e.g., me@example.com">
+    <br>
+    <label class="label">Password</label>
+    <input type="password" name="user[password]" placeholder="6 or more characters">
+    <span id="entered_password-errors" class="errors"></span>    
+    <br>
+    <div class="submit"><input type="submit" value="Sign Up"></div>
+  </form>
+
+</div>

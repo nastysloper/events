@@ -1,23 +1,37 @@
+<% if !current_user %>
+<div id="sign in">
+  <li><a href="/sessions/new">Sign In</a></li>
+  <li><a href="/users/new">Sign Up</a></li>
+</div>
+<% else %>
+<div id="Log out">
+  <li><a href="/sessions/<%= current_user.id %>">Log out</a></li>
+</div>
+<% end %>
+
 <div class="container">
-  <h1>Welcome to Sinatra!</h1>
-  <p>Hello, world!</p>
+  <h1>Welcome to Party Time!</h1>
+  <p>Look at all the fun you can have!</p>
 
   <table>
     <tr>
-      <th>File Description</th>
-      <th>File Location</th>
+      <th>Event</th>
+      <th>Event Location</th>
+      <th>Event Time</th>
+      
     </tr>
+    <% @events.each do |event|%>
     <tr>
-      <td>This view file</td>
-      <td><code><%= __FILE__.gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The layout file</td>
-      <td><code><%= File.expand_path('../layout.erb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The current controller</td>
-      <td><code><%= File.expand_path('../../controllers/index.rb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
+      <td><a href="/event/find/<%= event.name %>"><%= event.name %></a></td>
+      <td><%= event.location %></td>
+      <td><%= event.starts_at %></td>
+    <% end %>
     </tr>
   </table>
+</div>
+
+
+<div class="create event">
+  <li><a href="/event/create/new">Create a new event</a></li>
+  <li><a href="/event/delete">Cancel an event</a></li>
 </div>
